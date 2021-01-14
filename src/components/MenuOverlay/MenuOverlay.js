@@ -5,9 +5,7 @@ import ActionButton from 'components/ActionButton';
 import { workerTypes } from 'constants/types';
 import core from 'core';
 import { isIOS, isIE } from 'helpers/device';
-import downloadPdf from 'helpers/downloadPdf';
 import openFilePicker from 'helpers/openFilePicker';
-import { print } from 'helpers/print';
 import toggleFullscreen from 'helpers/toggleFullscreen';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -40,15 +38,6 @@ function MenuOverlay() {
     };
   }, []);
 
-  const handlePrintButtonClick = () => {
-    closeMenuOverlay();
-    print(dispatch, isEmbedPrintSupported, sortStrategy, colorMap);
-  };
-
-  const downloadDocument = () => {
-    downloadPdf(dispatch);
-  };
-
   return (
     <FlyoutMenu menu="menuOverlay" trigger="menuButton" onClose={undefined} ariaLabel={t('component.menuOverlay')}>
       <ActionButton
@@ -68,26 +57,6 @@ function MenuOverlay() {
         ariaLabel={isFullScreen ? t('action.exitFullscreen') : t('action.enterFullscreen')}
         role="option"
         onClick={toggleFullscreen}
-      />
-      {documentType !== workerTypes.XOD && (
-        <ActionButton
-          dataElement="downloadButton"
-          className="row"
-          img="icon-header-download"
-          label={t('action.download')}
-          ariaLabel={t('action.download')}
-          role="option"
-          onClick={downloadDocument}
-        />
-      )}
-      <ActionButton
-        dataElement="printButton"
-        className="row"
-        img="icon-header-print-line"
-        label={t('action.print')}
-        ariaLabel={t('action.print')}
-        role="option"
-        onClick={handlePrintButtonClick}
       />
       {!isIE && (
         <ActionButton

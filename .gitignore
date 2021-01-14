@@ -8,7 +8,6 @@ webviewer-ui.zip
 notes
 static/lib
 coverage
-build
 tests
 lib
 .eslintignore
