@@ -158,49 +158,7 @@ const DocumentControls = props => {
     setPageString(e.target.value);
   };
 
-  return isDisabled ? null : (
-    <div
-      className={'documentControlsContainer'}
-      data-element={'documentControl'}
-    >
-      {shouldShowControls ? (
-        <div className={'documentControls'}>
-          <div className={'divider'}></div>
-          <div className={'documentControlsInput'}>
-            <input
-              onBlur={onBlur}
-              onChange={pageStringUpdate}
-              value={pageString}
-              placeholder={t('option.documentControls.placeholder')}
-              aria-label={t('option.documentControls.placeholder')}
-              className="pagesInput"
-              type="text"
-            />
-            <div className={'documentControlsButton'}>
-              <Button
-                img="icon-delete-line"
-                onClick={onDeletePages}
-                title="option.thumbnailPanel.delete"
-                dataElement="thumbMultiDelete"
-              />
-              <Button
-                img="icon-header-page-manipulation-page-rotation-clockwise-line"
-                onClick={rotateClockwise}
-                title="option.thumbnailPanel.rotateClockwise"
-                dataElement="thumbMultiRotate"
-              />
-              <Button
-                img="ic-operation-export-line"
-                title="action.extract"
-                onClick={extractPages}
-                dataElement="thumbExtract"
-              />
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </div>
-  );
+  return null;
 };
 
 DocumentControls.propTypes = {

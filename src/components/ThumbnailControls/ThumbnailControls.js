@@ -56,28 +56,7 @@ const ThumbnailControls = ({ index }) => {
     dispatch(actions.showWarningMessage(warning));
   };
 
-  return isElementDisabled ? null : (
-    <div className="thumbnailControls" data-element={dataElementName}>
-      <Button
-        img="icon-header-page-manipulation-page-rotation-counterclockwise-line"
-        onClick={rotateCounterClockwise}
-        title="option.thumbnailPanel.rotateCounterClockwise"
-        dataElement="thumbRotateCounterClockwise"
-      />
-      <Button
-        img="icon-delete-line"
-        onClick={handleDelete}
-        title="option.thumbnailPanel.delete"
-        dataElement="thumbDelete"
-      />
-      <Button
-        img="icon-header-page-manipulation-page-rotation-clockwise-line"
-        onClick={rotateClockwise}
-        title="option.thumbnailPanel.rotateClockwise"
-        dataElement="thumbRotateClockwise"
-      />
-    </div>
-  );
+  return null;
 };
 
 ThumbnailControls.propTypes = propTypes;
